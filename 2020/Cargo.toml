@@ -1,0 +1,20 @@
+[package]
+authors = ["stijn <s.heldens@esciencecenter.nl>"]
+edition = "2018"
+name = "rust-advent-of-code-2020"
+version = "0.1.0"
+[dependencies]
+anyhow = "1.0.34"
+defaultmap = "0.5.0"
+enum-map = "0.6.4"
+fnv = "1.0.7"
+itertools = "0.9.0"
+lazy_static = "1.4.0"
+ndarray = "0.14.0"
+nonminmax = "0.1.1"
+petgraph = "0.5.1"
+recap = "0.1.1"
+regex = "1.4.2"
+serde = "1.0.118"
+[profile.release]
+debug = true
