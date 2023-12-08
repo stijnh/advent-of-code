@@ -14,15 +14,10 @@ impl Card {
     }
 
     fn calculate_matches(&self) -> u32 {
-        let mut result = 0;
-
-        for &x in &self.scratched {
-            if self.winning.contains(&x) {
-                result += 1
-            }
-        }
-
-        result
+        self.scratched
+            .iter()
+            .filter(|x| self.winning.contains(&x))
+            .count() as u32
     }
 }
 

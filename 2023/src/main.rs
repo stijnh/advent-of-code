@@ -3,7 +3,7 @@ mod day01;
 mod day02;
 mod day03;
 mod day04;
-//mod day05;
+mod day05;
 //mod day06;
 //mod day07;
 //mod day08;
@@ -36,7 +36,7 @@ fn main() -> Result {
         day02::run,
         day03::run,
         day04::run,
-        //day05::run,
+        day05::run,
         //day06::run,
         //day07::run,
         //day08::run,
@@ -62,6 +62,7 @@ fn main() -> Result {
     let mut args = env::args();
     let binary = args.next().unwrap_or_default();
     let day = args.next().unwrap_or_default();
+    let mut input_file = args.next().unwrap_or_default().to_string();
 
     let day = if let Ok(i) = day.parse::<usize>() {
         i
@@ -73,13 +74,13 @@ fn main() -> Result {
         bail!("day must be a number between 1 and {}", funs.len());
     }
 
-    let mut input_file = String::new();
+    if input_file.is_empty() {
+        for &prefix in &[".", "..", "input", "../input/"] {
+            input_file = format!("{}/day{:02}", prefix, day);
 
-    for &prefix in &[".", "..", "input", "../input/"] {
-        input_file = format!("{}/day{:02}", prefix, day);
-
-        if Path::new(&input_file).exists() {
-            break;
+            if Path::new(&input_file).exists() {
+                break;
+            }
         }
     }
 
