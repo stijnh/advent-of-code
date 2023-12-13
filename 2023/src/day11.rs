@@ -1,5 +1,4 @@
 use crate::common::*;
-use num::traits::real::Real;
 
 type Pos = [i64; 2];
 
@@ -54,7 +53,7 @@ pub(crate) fn run(lines: Lines) -> Result {
 #[cfg(test)]
 mod tests {
     use super::*;
-    const lines: &[&str] = &[
+    const LINES: &[&str] = &[
         "...#......",
         ".......#..",
         "#.........",
@@ -69,7 +68,7 @@ mod tests {
 
     #[test]
     fn test() {
-        let g = parse_galaxies(&lines);
+        let g = parse_galaxies(&LINES);
         assert_eq!(expand_and_sum(&g, 2), 374);
         assert_eq!(expand_and_sum(&g, 10), 1030);
         assert_eq!(expand_and_sum(&g, 100), 8410);
